@@ -2,7 +2,9 @@
 </script>
 
 <template>
-
+<footer>
+    <!--Footer aqui-->
+</footer>
 </template>
 
 
