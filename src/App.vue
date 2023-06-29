@@ -1,5 +1,6 @@
 <script setup>
 import Header from './components/Header.vue';
+import FooterMenu from './components/FooterMenu.vue';
 import { ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 
@@ -53,6 +54,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </section>
   </header>
   <RouterView />
+<FooterMenu/>
 </template>
 
 <style scoped>

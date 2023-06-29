@@ -1,11 +1,13 @@
 <script setup>
 import FooterView from './FooterView.vue';
-import Slider from '../components/Slider.vue';
+import HomeCarousel from '../components/HomeCarousel.vue';
+import HomeContent from '../components/HomeContent.vue'
 </script>
 
 <template>
  
-   <Slider/> 
+ <HomeCarousel/>
+ <HomeContent/>
   <FooterView/>
 </template>
 

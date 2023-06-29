@@ -4,7 +4,7 @@ import { initFlowbite } from 'flowbite';
 
 <template>
     <section class="pt-20 lg:pt-36">
-        <div id="default-carousel" class="relative w-full custom-slider" data-carousel="slide">
+        <div id="default-carousel" class="relative w-full custom-slider z-10" data-carousel="slide">
             <!-- Carousel wrapper -->
             <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                 <!-- Item 1 -->
@@ -14,7 +14,7 @@ import { initFlowbite } from 'flowbite';
                 </div>
                 <!-- Item 2 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="../assets/1685643697_1280x400 (1).webp"
+                    <img src="../assets/1687444618_1280x400-martes-y-jueves-julio-nuevo.webp"
                         class="absolute flex w-full  h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <!-- Item 3 -->
@@ -75,6 +75,4 @@ import { initFlowbite } from 'flowbite';
     </section>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

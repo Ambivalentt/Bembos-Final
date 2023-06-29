@@ -26,7 +26,7 @@ const openModalPhone = () =>{
 
 const reloadPage = () =>{
   setTimeout( ()=>{
-    100
+    900
     window.location.reload();
   })
 }
@@ -39,21 +39,21 @@ const reloadPage = () =>{
   <header class="max-w-6xl flex mx-auto justify-between items-center h-full gap-x-2 sm:gap-x-0 relative ">
     <section class="w-24 sm:w-36">
       <RouterLink class="hidden lg:block" @click="reloadPage" to="/" exact-active-class=""><img src="../assets/fotor_2023-5-26_10_5_7.png" alt=""></RouterLink>
-      <RouterLink class="lg:hidden" to="/"><img src="../assets/Bembos_logo15.png" alt=""></RouterLink>
+      <RouterLink class="lg:hidden" @click="reloadPage" to="/"><img src="../assets/Bembos_logo15.png" alt=""></RouterLink>
 
     </section>
-    <section class="bg-yellow-300 flex w-40 sm:w-44 rounded-full px-0.5 sm:px-3 items-center lg:hidden">
+    <section class="bg-yellow-300 flex w-28 sm:w-44 rounded-full px-0.5 sm:px-3 items-center lg:hidden">
       <p class="text-bembos font-semibold tracking-tighter text-center text-xs sm:text-base">Pide en tiendas <span
           class="text-red-600 font-extrabold">SIN
           COLAS</span></p>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-        class="w-14 h-14 text-bembos">
+        class="w-12 h-12 md:w-14 md:h-14 text-bembos">
         <path stroke-linecap="round" stroke-linejoin="round"
           d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
       </svg>
     </section>
     <section class="flex items-center gap-x-0  lg:gap-x-4">
-      <div class="flex gap-x-6 items-center">
+      <div class="flex gap-x-3 md:gap-x-6 items-center">
         <svg @click="openModalPhone"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.9" stroke="currentColor"
           class="w-8 h-8 sm:h-12 sm:w-12 text-blue-900 lg:text-white">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -87,8 +87,8 @@ const reloadPage = () =>{
   </header>
 
   <!--NAVBAR MODAL-->
-  <aside class="fixed z-40 top-0 left-0 bg-bembos max-w-sm w-full h-full"
-    :class="{ 'close-aside': closeAside == true }, { 'opacity-0': closeAside == true }">
+  <aside class="fixed z-50 top-0 left-0 bg-bembos max-w-sm w-full h-full"
+    :class="{ 'close-aside': closeAside == true }, { 'opacity-0': closeAside == true }" >
     <section class="p-4">
       <header class="flex justify-between pb-20 items-center">
         <div class="w-40">
@@ -99,7 +99,7 @@ const reloadPage = () =>{
         </div>
       </header>
       <main class="">
-        <ul class="flex flex-col text-white gap-8 font-bold text-3xl tracking-tighter items-center">
+        <ul :class="{'hidden': closeAside  == true}" class="flex flex-col text-white gap-8 font-bold text-3xl tracking-tighter items-center">
           <li>
             <RouterLink to="/menu">MENÚ</RouterLink>
           </li>
