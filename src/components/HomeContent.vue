@@ -51,8 +51,8 @@ window.addEventListener('resize', changeSlidesPerView);
 
 <template>
     <section class=" w-full mx-auto py-20 bg-gray-100">
-        <header class="flex justify-between max-w-7xl mx-auto px-4 lg:px-0 ">
-            <h3 class="font-semibold text-2xl sm:text-3xl custom-font tracking-widest ">PROMOCIONES DE HAMBURGUESAS ONLINE
+        <header class="flex justify-between max-w-7xl mx-auto px-4 lg:px-2 ">
+            <h3 class="font-semibold text-2xl sm:text-3xl custom-font tracking-widest">PROMOCIONES DE HAMBURGUESAS ONLINE
             </h3>
             <div class="gap-4 justify-center hidden md:flex">
                 <button @click="swiperInstance.slidePrev()"><svg xmlns="http://www.w3.org/2000/svg" height="1.4em"
@@ -95,6 +95,9 @@ window.addEventListener('resize', changeSlidesPerView);
                 </swiper-slide>
             </swiper>
         </main>
+    </section>
+    <section>
+        
     </section>
 </template>
 
