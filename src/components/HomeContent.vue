@@ -67,7 +67,7 @@ window.addEventListener('resize', changeSlidesPerView);
                     </svg></button>
             </div>
         </header>
-        <main class=" max-w-7xl mx-auto ">
+        <main class="max-w-7xl mx-auto">
             <!--:pagination="{ clickable: true }" paginacion-->
             <swiper :modules="modules" :slides-per-view="slidesPerView" :space-between="spacePerView" @swiper="onSwiper"
                 @slideChange="onSlideChange" class="">
@@ -135,4 +135,5 @@ window.addEventListener('resize', changeSlidesPerView);
         height: 60%;
     }
 
-}</style>
+}
+</style>

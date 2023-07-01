@@ -2,8 +2,8 @@
 </script>
 
 <template>
-    <main class="w-full h-72 my-36">
-        <section class="flex justify-center max-w-6xl border border-blue-800 rounded-xl mx-auto h-full">
+    <main class="w-full h-full hidden lg:block bg-gray-100 pt-10 pb-40">
+        <section class=" bg-white flex justify-center max-w-6xl border border-blue-800 rounded-xl mx-auto h-72">
             <article class="bg-yellow-400 w-4/12 rounded-s-xl ps-8 pt-5">
                 <h4 class="text-5xl text-blue-800 font-bold custom-font">Social<br>Bembos</h4>
                 <p class="text-lg text-blue-800 font-semibold custom-font mt-3">Compartir en:</p>
