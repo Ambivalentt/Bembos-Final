@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink, RouterView } from 'vue-router'
 import { ref, computed, onBeforeUnmount } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/core';
@@ -79,7 +80,7 @@ const modules = [Navigation, Pagination, Scrollbar, Autoplay];
                         </main>
                     </header>
                     <footer class="pt-2.5 sm:pt-5">
-                        <button class="px-3 py-1 sm:px-14 md:py-2 lg:text-xl text-white font-bold bg-blue-700 rounded-full ">Ver todos</button>
+                      <RouterLink to="/menu/hamburguesas"><button class="px-3 py-1 sm:px-14 md:py-2 lg:text-xl text-white font-bold bg-blue-700 rounded-full ">Ver todos</button></RouterLink>  
                     </footer>
                 </article>
                 <article class="flex flex-col items-center">
@@ -107,6 +108,7 @@ const modules = [Navigation, Pagination, Scrollbar, Autoplay];
             </section>
         </main>
     </section>
+    <RouterView />
 </template>
 
 <style scoped>

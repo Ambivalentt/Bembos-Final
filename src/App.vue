@@ -13,12 +13,12 @@ import { RouterLink, RouterView } from 'vue-router'
     </section>
     <section class="w-full bg-white shadow-xl px-5 xl:px-0">
       <nav class="hidden justify-between max-w-6xl mx-auto items-center py-3 lg:flex">
-        <ul class="flex text-blue-900 gap-20 font-bold text-xl tracking-tighter">
+        <ul class="flex text-blue-900 gap-20 font-bold text-xl tracking-tighter ">
           <li>
             <RouterLink to="/menu">MENÚ</RouterLink>
           </li>
           <li>
-            <RouterLink to="/beneficios">BENEFICIOS</RouterLink>
+            <RouterLink to="/promociones">PROMOCIONES</RouterLink>
           </li>
           <li>
             <RouterLink to="/locales">LOCALES</RouterLink>
@@ -58,7 +58,21 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+
 .bg-bembos {
   color: #21388b;
 }
+.router-link-active{
+  border-bottom: red 3px solid;
+}
+li:hover{
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+li>:hover{
+  border-bottom: red solid;
+  transform: translateY(4px);
+  transition: all 0.2s ease-in-out;
+}
+
 </style>

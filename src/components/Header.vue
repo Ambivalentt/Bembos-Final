@@ -6,7 +6,9 @@ const closeAside = ref(true)
 
 
 const closeAsideBtn = () => {
-  closeAside.value = true
+  setTimeout(()=>{
+    closeAside.value = true
+  }, 200)
 }
 
 const bembosLogo = ref(false)
@@ -15,7 +17,7 @@ const openModalbtn = () => {
   closeAside.value = false
   setTimeout(() => {
     bembosLogo.value = true
-  }, 200)
+  }, 300)
 }
 
 const phonemodal = ref(false);
@@ -92,7 +94,7 @@ const reloadPage = () =>{
     <section class="p-4">
       <header class="flex justify-between pb-20 items-center">
         <div class="w-40">
-          <img v-if="bembosLogo" :class="{ 'w-30': bembosLogo == true }" src="../assets/fotor_2023-5-26_10_5_7.webp" alt="">
+          <RouterLink to="/"><img v-if="bembosLogo" :class="{ 'w-30': bembosLogo == true }" src="../assets/fotor_2023-5-26_10_5_7.webp"  @click="closeAsideBtn" alt=""></RouterLink>
         </div>
         <div class="pb-3">
           <p class="text-7xl text-white" @click="closeAsideBtn" v-show="!closeAside">&times;</p>
@@ -101,16 +103,16 @@ const reloadPage = () =>{
       <main class="">
         <ul :class="{'hidden': closeAside  == true}" class="flex flex-col text-white gap-8 font-bold text-3xl tracking-tighter items-center">
           <li>
-            <RouterLink to="/menu">MENÚ</RouterLink>
+            <RouterLink  to="/menu" @click="closeAsideBtn" >MENÚ</RouterLink>
           </li>
           <li>
-            <RouterLink to="/beneficios">BENEFICIOS</RouterLink>
+            <RouterLink to="/promociones" @click="closeAsideBtn">PROMOCIONES</RouterLink>
           </li>
           <li>
-            <RouterLink to="/locales">LOCALES</RouterLink>
+            <RouterLink to="/locales" @click="closeAsideBtn">LOCALES</RouterLink>
           </li>
           <li>
-            <RouterLink to="/nosotros">NOSOTROS</RouterLink>
+            <RouterLink to="/nosotros" @click="closeAsideBtn">NOSOTROS</RouterLink>
           </li>
         </ul>
       </main>
@@ -147,7 +149,7 @@ const reloadPage = () =>{
   color: #21388b;
 }
 aside {
-  transition: 0.20s ease-in-out;
+  transition: 0.40s ease-in-out;
 
 }
 
@@ -158,4 +160,7 @@ aside {
   transition: 0.30s  ease-in-out;
 }
 
+.router-link-active{
+  color: goldenrod;
+}
 </style>

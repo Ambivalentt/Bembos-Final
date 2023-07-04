@@ -64,14 +64,17 @@ const openCollaps4 = () => {
 </script>
 
 <template>
-    <main class="pt-40">
+    <main class="pt-20 lg:pt-40">
         <div class="pagina-content">
             <div class="container-max">
                 <div class="pagina">
+                    <div class="pagina-title">
+                        <h1>NOSOTROS</h1>
+                    </div>
                     <div class="container-content">
                         <div class="content-header">
-                            <div id="como-nacio">
-                                <h2 type="button" ref="title1Ref" @click="openCollaps1" class="cursor-pointer font-bold">¿COMO NACIÓ BEMBOS?</h2>
+                            <div class="px-3">
+                                <h2 type="button" ref="title1Ref" @click="openCollaps1" class="cursor-pointer  font-bold">¿COMO NACIÓ BEMBOS?</h2>
                                 <section :class="{ 'hidden': collaps1 == true }">
                                     <div class="banner"><img src="../assets/banner.webp" alt=""></div>
                                     <div class="banner-text">
@@ -100,7 +103,7 @@ const openCollaps4 = () => {
                                     </div>
                                 </section>
                             </div>
-                            <div class="content-header-div">
+                            <div class="content-header-div px-3">
                                 <h2 type="button" ref="title2Ref" @click="openCollaps2" class="cursor-pointer font-bold">¿QUE OFRECEMOS?</h2>
                                 <section :class="{ 'hidden': collaps2 == false }">
                                     <div class="banner"><img src="../assets/banner.webp" alt=""></div>
@@ -114,7 +117,7 @@ const openCollaps4 = () => {
                                     </div>
                                 </section>
                             </div>
-                            <div class="content-header-div">
+                            <div class="content-header-div px-3">
                                 <h2 type="button" ref="title3Ref" @click="openCollaps3" class="cursor-pointer font-bold">CÓMO SE CREÓ LA HAMBURGUESA
                                     BEMBOS</h2>
                                 <section :class="{ 'hidden': collaps3 == false }">
@@ -137,7 +140,7 @@ const openCollaps4 = () => {
                                     </div>
                                 </section>
                             </div>
-                            <div class="content-header-div">
+                            <div class="content-header-div px-3">
                                 <h2 type="button" ref="title4Ref" @click="openCollaps4" class="cursor-pointer font-bold">EN LA
                                     ACTUALIDAD</h2>
                                 <section :class="{ 'hidden': collaps4 == false }">

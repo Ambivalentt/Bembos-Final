@@ -20,13 +20,24 @@ const router = createRouter({
       component: () => import ('../views/LocalesView.vue')
     },
     {
-      path: '/beneficios',
-      name:'beneficios',
-      component: () => import ('../views/BeneficiosView.vue')
+      path: '/promociones',
+      name:'promociones',
+      component: () => import ('../views/PromocionesView.vue'),
+      
     },{
       path: '/menu',
       name:'menu',
       component: () => import ('../views/MenuView.vue')
+    },
+    {
+      path:'/menu/Promociones',
+      name:'promociones-product',
+      component: () => import ('../views/TestView.vue')
+    }
+    ,{
+      path:'/menu/hamburguesas',
+      name:'hamburguesas',
+      component: () => import ('../views/MenuHamburguesas.vue')
     }
   ]
 })

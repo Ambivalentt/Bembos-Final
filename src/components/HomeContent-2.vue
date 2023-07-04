@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink, RouterView } from 'vue-router'
 import { ref, computed, onBeforeUnmount } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper/core';
@@ -38,7 +39,7 @@ window.addEventListener('resize', changeSlidesPerView);
 </script>
 
 <template>
-    <section class="w-full mx-auto py-20 bg-gray-100 h-full">
+    <section class="w-full mx-auto py-4 md:py-14     bg-gray-100 h-full">
         <header class="flex justify-between max-w-7xl mx-auto px-4 lg:px-2 ">
             <h3 class="font-semibold text-2xl sm:text-3xl custom-font tracking-widest">MENÚ DE HAMBURGUESAS ONLINE
             </h3>
@@ -90,9 +91,9 @@ window.addEventListener('resize', changeSlidesPerView);
                                 <h2 class="text-base  sm:text-2xl custom-font font-bold text-center">Hamburguesas</h2>
 
                                 <footer class="pt-2 flex w-full justify-center">
-                                    <button
-                                        class="bg-blue-800 text-white w-56 mx-3 h-10 sm:w-64 sm:h-10  rounded-full font-bold custom-font text-xl">Ver
-                                        Todos</button>
+                                    <RouterLink to="/menu/hamburguesas"
+                                        class="bg-blue-800 text-white mx-2.5 w-56 md:w-56 lg:w-60  text-center py-1.5 rounded-full font-bold custom-font text-xl">
+                                        <button class="w-full ">Ver Todos</button></RouterLink>
                                 </footer>
 
                             </main>
@@ -195,7 +196,6 @@ window.addEventListener('resize', changeSlidesPerView);
                                         Todos
                                     </button>
                                 </footer>
-
                             </main>
                         </article>
                     </section>
@@ -223,6 +223,7 @@ window.addEventListener('resize', changeSlidesPerView);
             </swiper>
         </main>
     </section>
+    <RouterView />
 </template>
 
 <style scoped>
@@ -263,4 +264,9 @@ window.addEventListener('resize', changeSlidesPerView);
         height: 60%;
     }
 
-}</style>
+}
+
+.router-link-active {
+    border-bottom: red 3px solid;
+}
+</style>

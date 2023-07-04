@@ -50,7 +50,7 @@ window.addEventListener('resize', changeSlidesPerView);
 </script>
 
 <template>
-    <section class=" w-full mx-auto py-20 bg-gray-100">
+    <section class=" w-full mx-auto pt-20 pb-10 md:py-20 bg-gray-100">
         <header class="flex justify-between max-w-7xl mx-auto px-4 lg:px-2 ">
             <h3 class="font-semibold text-2xl sm:text-3xl custom-font tracking-widest">PROMOCIONES DE HAMBURGUESAS ONLINE
             </h3>
