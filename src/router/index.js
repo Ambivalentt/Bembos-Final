@@ -37,7 +37,11 @@ const router = createRouter({
     ,{
       path:'/menu/hamburguesas',
       name:'hamburguesas',
-      component: () => import ('../views/MenuHamburguesas.vue')
+      component: () => import ('../views/MenuHamburguesas.vue'),
+    },
+    {
+      path:'/menu/hamburguesas/:id',
+      component: () => import ('../views/HamburguesaView.vue')
     }
   ]
 })
