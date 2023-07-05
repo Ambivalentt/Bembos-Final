@@ -111,9 +111,9 @@ window.addEventListener('resize', changeSlidesPerView);
                                 <h2 class="text-base  sm:text-2xl custom-font font-bold text-center">Pollo</h2>
 
                                 <footer class="pt-2 flex w-full justify-center">
-                                    <button
-                                        class="bg-blue-800 text-white w-56 mx-3 h-10 sm:w-64 sm:h-10  rounded-full font-bold custom-font text-xl">Ver
-                                        Todos</button>
+                                    <RouterLink to="/menu/HamburguesasPollo"
+                                        class="bg-blue-800 text-white mx-2.5 w-56 md:w-56 lg:w-60  text-center py-1.5 rounded-full font-bold custom-font text-xl">
+                                        <button class="w-full ">Ver Todos</button></RouterLink>
                                 </footer>
 
                             </main>
@@ -171,10 +171,10 @@ window.addEventListener('resize', changeSlidesPerView);
                                 <h2 class="text-base  sm:text-2xl custom-font font-bold text-center">Bebidas</h2>
 
                                 <footer class="pt-2 flex w-full justify-center">
-                                    <button
-                                        class="bg-blue-800 text-white w-56 mx-3 h-10 sm:w-64 sm:h-10  rounded-full font-bold custom-font text-xl">Ver
-                                        Todos</button>
-                                </footer>
+                                    <RouterLink to="/menu/bebidas"
+                                        class="bg-blue-800 text-white mx-2.5 w-56 md:w-56 lg:w-60  text-center py-1.5 rounded-full font-bold custom-font text-xl">
+                                        <button class="w-full ">Ver Todos</button></RouterLink>
+                                </footer> 
 
                             </main>
                         </article>

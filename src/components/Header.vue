@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { ref,inject } from 'vue'
 import NavbarPhone from './NavbarPhone.vue'
 import carrito from './carrito.vue';
 const selected = ref('lima')
 const closeAside = ref(true)
-
+const globalData = inject('globalData')
 
 const closeAsideBtn = () => {
   setTimeout(()=>{

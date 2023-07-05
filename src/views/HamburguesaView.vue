@@ -7,11 +7,14 @@ import { ref, inject } from 'vue';
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const products = ref([])
-
+const nameProduct = ref('')
+const imgProduct = ref('')
 const bembosJson = async () => {
     const response = await axios.get(`https://front-mrt-default-rtdb.firebaseio.com/productos/${route.params.id}.json`)
-    products.value = response.data
-    priceProduct.value = response.data.price
+    products.value = response.data;
+    nameProduct.value = response.data.name;
+    priceProduct.value = response.data.price;
+    imgProduct.value = response.data.img
 }
 bembosJson()
 //productos cantidad
@@ -34,14 +37,30 @@ productDecrease()
 
 const globalData = inject('globalData')
 const addToCart = () => {
-    const item = (
-        {
-            test: "test"
+    if (currentProduct.value === 1) {
+        const item = {
+            name: nameProduct.value,
+            price: priceProduct.value,
+            img: imgProduct.value,
+            cantidad: currentProduct.value
         }
-    )
-    globalData.value.push(item);
-    console.log(globalData.value)
+
+        globalData.value.productosComprados.push(item);
+    }
+    if (currentProduct.value >= 2) {
+        const item = {
+            name: nameProduct.value,
+            price: productTotal.value,
+            img: imgProduct.value,
+            cantidad: currentProduct.value
+        }
+
+        globalData.value.productosComprados.push(item);
+    }
+
+    console.log(globalData.value.productosComprados)
 }
+
 </script>
 
 
@@ -126,7 +145,7 @@ const addToCart = () => {
                 </div>
             </div>
             <div>
-                <button class="text-white bg-blue-800 custom-font px-8 py-3 rounded-full" @click="addToCart">AGREGAR S/.
+                <button class="text-white  bg-blue-800 custom-font px-8 py-3 rounded-full" @click="addToCart">AGREGAR S/.
                     <span :class="{ 'hidden': currentProduct === 1 }, { 'block': currentProduct > 1 }">
                         {{ productTotal }}
                     </span>

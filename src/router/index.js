@@ -43,6 +43,15 @@ const router = createRouter({
       path:'/menu/hamburguesas/:id',
       component: () => import ('../views/HamburguesaView.vue'),
     }
+    ,{
+      path:'/menu/hamburguesasPollo',
+      name:'hamburguesapollo',
+      component: () => import ('../views/HamburguesasPollo.vue')
+    },
+    {
+     path:'/menu/bebidas',
+     component:() => import ('../views/Bebidas.vue')
+    }
   ]
 })
 
