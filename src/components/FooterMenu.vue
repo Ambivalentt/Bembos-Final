@@ -1,14 +1,16 @@
 <script setup>
-import {ref,inject,watch} from 'vue'
+import { ref, inject, watch } from 'vue'
+import { RouterLink, RouterView } from 'vue-router'
 
-const globalData = inject('globalData') 
+const globalData = inject('globalData')
 const lengthProducts = ref(globalData.value.productosComprados.length)
 watch(() => globalData.value.productosComprados.length, (newLength) => {
-  lengthProducts.value = newLength;
+    lengthProducts.value = newLength;
 })
+
 const carritoStatus = inject('carritoStatus');
-const openCard = () =>{
-  carritoStatus.value = true
+const openCard = () => {
+    carritoStatus.value = true
 }
 </script>
 
@@ -16,15 +18,19 @@ const openCard = () =>{
     <footer class="fixed bottom-0 bg-bembos w-full py-1.5 lg:hidden z-20">
         <section class="px-5 sm:px-16">
             <ul class="flex justify-between items-center gap-7">
-                <li class="flex flex-col justify-center items-center">
-                    <svg data-v-e114f776="" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 59.211 55.314">
-                        <path
-                            d="M709.028 1327.928a7.871 7.871 0 0 0-1.869-5.179v-4.073c0-11.274-7.831-20.446-17.457-20.446h-20.56c-9.626 0-17.457 9.172-17.457 20.446v4.073a7.873 7.873 0 0 0-1.869 5.179v2.382a7.871 7.871 0 0 0 1.869 5.178v2.782c0 8.423 7.831 15.274 17.457 15.274H689.7c9.626 0 17.457-6.851 17.457-15.274v-2.781a7.873 7.873 0 0 0 1.869-5.179zm-5.005 0v2.382c0 1.313-.738 2.263-1.235 2.263h-46.73c-.5 0-1.236-.95-1.236-2.263v-2.382c0-1.361.744-2.263 1.236-2.263h46.73c.491 0 1.235.902 1.235 2.263zm-47.332-9.252c0-8.515 5.586-15.441 12.452-15.441H689.7c6.866 0 12.452 6.926 12.452 15.441v1.984h-45.461zm45.463 19.595c0 5.662-5.586 10.269-12.452 10.269h-20.56c-6.866 0-12.452-4.607-12.452-10.269v-.692h45.463z"
-                            transform="translate(-649.817 -1298.23)" style="fill: rgb(251, 185, 5);"></path>
-                    </svg>
-                    <p class="text-white tracking-tighter font-semibold text-xs">MENU</p>
-                </li>
+              
+                    <li class="flex flex-col justify-center items-center">
+                       <RouterLink to="/menu" class="flex flex-col items-center">
+                         <svg data-v-e114f776="" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 59.211 55.314">
+                            <path
+                                d="M709.028 1327.928a7.871 7.871 0 0 0-1.869-5.179v-4.073c0-11.274-7.831-20.446-17.457-20.446h-20.56c-9.626 0-17.457 9.172-17.457 20.446v4.073a7.873 7.873 0 0 0-1.869 5.179v2.382a7.871 7.871 0 0 0 1.869 5.178v2.782c0 8.423 7.831 15.274 17.457 15.274H689.7c9.626 0 17.457-6.851 17.457-15.274v-2.781a7.873 7.873 0 0 0 1.869-5.179zm-5.005 0v2.382c0 1.313-.738 2.263-1.235 2.263h-46.73c-.5 0-1.236-.95-1.236-2.263v-2.382c0-1.361.744-2.263 1.236-2.263h46.73c.491 0 1.235.902 1.235 2.263zm-47.332-9.252c0-8.515 5.586-15.441 12.452-15.441H689.7c6.866 0 12.452 6.926 12.452 15.441v1.984h-45.461zm45.463 19.595c0 5.662-5.586 10.269-12.452 10.269h-20.56c-6.866 0-12.452-4.607-12.452-10.269v-.692h45.463z"
+                                transform="translate(-649.817 -1298.23)" style="fill: rgb(251, 185, 5);"></path>
+                        </svg>
+                        <p class="text-white tracking-tighter font-semibold text-xs">MENU</p>
+                       </RouterLink>
+                    </li>
+               
                 <li class="flex flex-col justify-center items-center">
                     <svg data-v-e114f776="" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         viewBox="0 0 60.728 55.659">
@@ -35,7 +41,12 @@ const openCard = () =>{
                     <p class="text-white tracking-tighter font-semibold text-xs">FAVORITOS</p>
                 </li>
                 <li class="flex flex-col justify-center items-center relative" @click="openCard">
-                    <svg data-v-e114f776="" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32.009 32.009" class=""><path d="M24.749 23.006H10.066a2.5 2.5 0 0 1-2.481-2.19l-2.3-18.388H1.212a1.214 1.214 0 0 1 0-2.428h5.144a1.214 1.214 0 0 1 1.2 1.063l.671 5.367h22.566a1.214 1.214 0 0 1 1.141 1.629l-4.837 13.3a2.508 2.508 0 0 1-2.348 1.647zM8.537 8.86l1.457 11.656a.072.072 0 0 0 .072.063h14.683a.072.072 0 0 0 .068-.048L29.062 8.86zM24.364 32.008a3.786 3.786 0 1 1 3.786-3.786 3.79 3.79 0 0 1-3.786 3.786zm0-5.145a1.358 1.358 0 1 0 1.358 1.358 1.36 1.36 0 0 0-1.358-1.357zM10.217 32.008a3.786 3.786 0 1 1 3.786-3.786 3.79 3.79 0 0 1-3.786 3.786zm0-5.145a1.358 1.358 0 1 0 1.359 1.359 1.36 1.36 0 0 0-1.359-1.358z" style="fill: rgb(251, 185, 5);"></path></svg>
+                    <svg data-v-e114f776="" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 32.009 32.009" class="">
+                        <path
+                            d="M24.749 23.006H10.066a2.5 2.5 0 0 1-2.481-2.19l-2.3-18.388H1.212a1.214 1.214 0 0 1 0-2.428h5.144a1.214 1.214 0 0 1 1.2 1.063l.671 5.367h22.566a1.214 1.214 0 0 1 1.141 1.629l-4.837 13.3a2.508 2.508 0 0 1-2.348 1.647zM8.537 8.86l1.457 11.656a.072.072 0 0 0 .072.063h14.683a.072.072 0 0 0 .068-.048L29.062 8.86zM24.364 32.008a3.786 3.786 0 1 1 3.786-3.786 3.79 3.79 0 0 1-3.786 3.786zm0-5.145a1.358 1.358 0 1 0 1.358 1.358 1.36 1.36 0 0 0-1.358-1.357zM10.217 32.008a3.786 3.786 0 1 1 3.786-3.786 3.79 3.79 0 0 1-3.786 3.786zm0-5.145a1.358 1.358 0 1 0 1.359 1.359 1.36 1.36 0 0 0-1.359-1.358z"
+                            style="fill: rgb(251, 185, 5);"></path>
+                    </svg>
                     <p class="text-white tracking-tighter font-semibold text-xs">CARRITO</p>
                     <p class="absolute -top-2 bg-red-600 rounded-xl text-white font-semibold -right-2 w-5 text-center">
                         {{ lengthProducts }}
@@ -55,8 +66,6 @@ const openCard = () =>{
     </footer>
 </template>
 
-<style scoped>
-.bg-bembos {
+<style scoped>.bg-bembos {
     background-color: #21388b;
-}
-</style>
+}</style>

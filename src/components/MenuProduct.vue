@@ -11,7 +11,7 @@ bembosJson()
 </script>
 
 <template>
-    <main class="w-full bg-gray-100 pt-44">
+    <main class="w-full bg-gray-100 pt-20 lg:pt-44">
         <section class="bg-white mx-auto max-w-5xl p-6">
             <header>
                 <h1 class="text-blue-800 text-3xl custom-font font-semibold pb-4">DISFRUTA DE NUETRAS HAMBURGUESAS A LA PARRILLA!</h1>
