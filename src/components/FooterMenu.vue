@@ -6,7 +6,10 @@ const lengthProducts = ref(globalData.value.productosComprados.length)
 watch(() => globalData.value.productosComprados.length, (newLength) => {
   lengthProducts.value = newLength;
 })
-
+const carritoStatus = inject('carritoStatus');
+const openCard = () =>{
+  carritoStatus.value = true
+}
 </script>
 
 <template>
@@ -31,7 +34,7 @@ watch(() => globalData.value.productosComprados.length, (newLength) => {
                     </svg>
                     <p class="text-white tracking-tighter font-semibold text-xs">FAVORITOS</p>
                 </li>
-                <li class="flex flex-col justify-center items-center relative">
+                <li class="flex flex-col justify-center items-center relative" @click="openCard">
                     <svg data-v-e114f776="" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32.009 32.009" class=""><path d="M24.749 23.006H10.066a2.5 2.5 0 0 1-2.481-2.19l-2.3-18.388H1.212a1.214 1.214 0 0 1 0-2.428h5.144a1.214 1.214 0 0 1 1.2 1.063l.671 5.367h22.566a1.214 1.214 0 0 1 1.141 1.629l-4.837 13.3a2.508 2.508 0 0 1-2.348 1.647zM8.537 8.86l1.457 11.656a.072.072 0 0 0 .072.063h14.683a.072.072 0 0 0 .068-.048L29.062 8.86zM24.364 32.008a3.786 3.786 0 1 1 3.786-3.786 3.79 3.79 0 0 1-3.786 3.786zm0-5.145a1.358 1.358 0 1 0 1.358 1.358 1.36 1.36 0 0 0-1.358-1.357zM10.217 32.008a3.786 3.786 0 1 1 3.786-3.786 3.79 3.79 0 0 1-3.786 3.786zm0-5.145a1.358 1.358 0 1 0 1.359 1.359 1.36 1.36 0 0 0-1.359-1.358z" style="fill: rgb(251, 185, 5);"></path></svg>
                     <p class="text-white tracking-tighter font-semibold text-xs">CARRITO</p>
                     <p class="absolute -top-2 bg-red-600 rounded-xl text-white font-semibold -right-2 w-5 text-center">

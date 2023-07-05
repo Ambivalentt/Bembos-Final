@@ -66,7 +66,7 @@ const addToCart = () => {
 
 
 <template>
-    <nav class="pt-52 max-w-6xl mx-auto">
+    <nav class=" pt-20 md:pt-52  max-w-6xl mx-auto">
         <ul class="flex items-center font-semibold gap-1 font-nav">
             <li class="underline">
                 <RouterLink to="/">Inicio</RouterLink>
@@ -101,15 +101,15 @@ const addToCart = () => {
             </li>
         </ul>
     </nav>
-    <main class="pt-10 w-full">
-        <section class="max-w-6xl mx-auto flex">
-            <article class="flex w-4/12">
-                <div class="w-80">
+    <main class="pt-10 w-full mb-52">
+        <section class="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+            <article class="flex md:w-4/12 ">
+                <div class="w-80 px-2 md:px-0">
                     <img class="w-full rounded-lg h-full max-w-3xl max-h-80 object-cover" :src="products.img">
                 </div>
             </article>
 
-            <article class="w-8/12 ps-16">
+            <article class="md:w-8/12 md:ps-16 px-5 md:px-0">
                 <h1 class="text-3xl text-blue-800 font-bold custom-font">Hamburguesa Bembos {{ products.name }}</h1>
                 <div class="py-7">
                     <p class="custom-font">La <span class="font-bold">Hamburguesa Bembos</span> preferida por la mayoria:
@@ -131,8 +131,8 @@ const addToCart = () => {
             </article>
         </section>
     </main>
-    <footer class="w-full bg-gray-100 fixed lg:bottom-0 bottom-14 items-center shadow-custom">
-        <section class="flex justify-center h-20 items-center gap-x-7 ">
+    <footer class="w-full bg-gray-100 fixed lg:bottom-0 bottom-10 items-center md:bottom-12 shadow-custom">
+        <section class="flex justify-center h-20 items-center gap-x-2 md:gap-x-7 ">
             <p class="custom-font font-semibold text-blue-900">Cantidad</p>
             <div class="flex items-center gap-3">
                 <div>
@@ -145,12 +145,12 @@ const addToCart = () => {
                 </div>
             </div>
             <div>
-                <button class="text-white  bg-blue-800 custom-font px-8 py-3 rounded-full" @click="addToCart">AGREGAR S/.
-                    <span :class="{ 'hidden': currentProduct === 1 }, { 'block': currentProduct > 1 }">
-                        {{ productTotal }}
+                <button class="text-white flex items-center gap-x-3 bg-blue-800 custom-font px-7 py-2 rounded-full" @click="addToCart"><span class=" hidden md:block">AGREGAR</span> 
+                    <span class="text-lg" :class="{ 'hidden': currentProduct === 1 }, { 'block': currentProduct > 1 }">
+                        S/.{{ productTotal }}
                     </span>
-                    <span :class="{ 'hidden': currentProduct > 1 }">
-                        {{ priceProduct }}
+                    <span class="text-lg" :class="{ 'hidden': currentProduct > 1 }">
+                        S/.{{ priceProduct }}
                     </span>
                 </button>
             </div>
