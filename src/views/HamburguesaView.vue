@@ -1,26 +1,159 @@
 <script setup>
+import { RouterLink, RouterView } from 'vue-router'
 import axios from 'axios';
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
+
+//parametros de ruta
 import { useRoute } from 'vue-router';
 const route = useRoute();
 const products = ref([])
 
 const bembosJson = async () => {
-    const request = await axios.get(`https://front-mrt-default-rtdb.firebaseio.com/productos/${route.params.id}.json`)
-    products.value = request.data
-    console.log(products.value)
+    const response = await axios.get(`https://front-mrt-default-rtdb.firebaseio.com/productos/${route.params.id}.json`)
+    products.value = response.data
+    priceProduct.value = response.data.price
 }
-
 bembosJson()
+//productos cantidad
+const priceProduct = ref()
+const currentProduct = ref(1)
+const productTotal = ref()
+
+const productIncrease = () => {
+    currentProduct.value++
+    productTotal.value = (currentProduct.value * priceProduct.value).toFixed(2)
+};
+productIncrease()
+const productDecrease = () => {
+    currentProduct.value--
+    productTotal.value = (currentProduct.value * priceProduct.value).toFixed(2)
+}
+productDecrease()
+
+//Carrito
+
+const globalData = inject('globalData')
+const addToCart = () => {
+    const item = (
+        {
+            test: "test"
+        }
+    )
+    globalData.value.push(item);
+    console.log(globalData.value)
+}
 </script>
 
+
+
 <template>
-    <main  class="pt-56">
-        
-        <img :src="products.img">
-       
+    <nav class="pt-52 max-w-6xl mx-auto">
+        <ul class="flex items-center font-semibold gap-1 font-nav">
+            <li class="underline">
+                <RouterLink to="/">Inicio</RouterLink>
+            </li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" height="0.9em"
+                    viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                </svg></li>
+            <li class="underline">
+                <RouterLink to="/menu">Menú</RouterLink>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" height="0.9em"
+                    viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                </svg>
+            </li>
+            <li class="underline">
+                <RouterLink to="/menu/hamburguesas">Hamburguesas</RouterLink>
+            </li>
+            <li class="underline">
+                <svg xmlns="http://www.w3.org/2000/svg" height="0.9em"
+                    viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                </svg>
+            </li>
+            <li class="underline">
+                <a href="#">{{ products.name }}</a>
+            </li>
+        </ul>
+    </nav>
+    <main class="pt-10 w-full">
+        <section class="max-w-6xl mx-auto flex">
+            <article class="flex w-4/12">
+                <div class="w-80">
+                    <img class="w-full rounded-lg h-full max-w-3xl max-h-80 object-cover" :src="products.img">
+                </div>
+            </article>
+
+            <article class="w-8/12 ps-16">
+                <h1 class="text-3xl text-blue-800 font-bold custom-font">Hamburguesa Bembos {{ products.name }}</h1>
+                <div class="py-7">
+                    <p class="custom-font">La <span class="font-bold">Hamburguesa Bembos</span> preferida por la mayoria:
+                        <span class="font-bold"> Hamburguesa {{ products.name }}</span> que lleva unos ingredientes muy
+                        buenos, uno de
+                        los clásicos por excelencia
+                    </p>
+                </div>
+                <div class="my-7">
+                    <h2 class="custom-font font-bold pb-2">Ingredientes:</h2>
+                    <ul class="custom-font list-disc ps-10">
+                        <li>{{ products.type }}</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="custom-font">Pide tu Hamburguesa <span class="font-bold">{{ products.name }}</span> en tamaño
+                        mediano o grande. Transfórmala en combo al agregar papas y gaseosas.</h3>
+                </div>
+            </article>
+        </section>
     </main>
+    <footer class="w-full bg-gray-100 fixed lg:bottom-0 bottom-14 items-center shadow-custom">
+        <section class="flex justify-center h-20 items-center gap-x-7 ">
+            <p class="custom-font font-semibold text-blue-900">Cantidad</p>
+            <div class="flex items-center gap-3">
+                <div>
+                    <button class="bg-gray-300 w-7 h-7 flex items-center justify-center" @click="productDecrease"
+                        :disabled="currentProduct === 1">-</button>
+                </div>
+                <span>{{ currentProduct }}</span>
+                <div class="bg-gray-300 w-7 h-7 flex items-center justify-center " @click="productIncrease">
+                    <button>+</button>
+                </div>
+            </div>
+            <div>
+                <button class="text-white bg-blue-800 custom-font px-8 py-3 rounded-full" @click="addToCart">AGREGAR S/.
+                    <span :class="{ 'hidden': currentProduct === 1 }, { 'block': currentProduct > 1 }">
+                        {{ productTotal }}
+                    </span>
+                    <span :class="{ 'hidden': currentProduct > 1 }">
+                        {{ priceProduct }}
+                    </span>
+                </button>
+            </div>
+        </section>
+    </footer>
+    <RouterView />
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+.custom-font {
+    font-family: 'Roboto Slab', serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+.font-nav {
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.shadow-custom {
+    box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.2);
+}
 </style>

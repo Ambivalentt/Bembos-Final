@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import NavbarPhone from './NavbarPhone.vue'
+import carrito from './carrito.vue';
 const selected = ref('lima')
 const closeAside = ref(true)
 
@@ -26,12 +27,12 @@ const openModalPhone = () =>{
   phonemodal.value == false ? phonemodal.value = true : phonemodal.value = false;
 }
 
-const reloadPage = () =>{
-  setTimeout( ()=>{
-    900
-    window.location.reload();
-  })
-}
+// const reloadPage = () =>{
+//  setTimeout( ()=>{
+//    900
+//    window.location.reload();
+//  })
+//}
 
 
 
@@ -40,8 +41,8 @@ const reloadPage = () =>{
 <template>
   <header class="max-w-6xl flex mx-auto justify-between items-center h-full gap-x-2 sm:gap-x-0 relative ">
     <section class="w-24 sm:w-36">
-      <RouterLink class="hidden lg:block" @click="reloadPage" to="/" exact-active-class=""><img src="../assets/fotor_2023-5-26_10_5_7.png" alt=""></RouterLink>
-      <RouterLink class="lg:hidden" @click="reloadPage" to="/"><img src="../assets/Bembos_logo15.png" alt=""></RouterLink>
+      <RouterLink class="hidden lg:block" to="/" exact-active-class=""><img src="../assets/fotor_2023-5-26_10_5_7.png" alt=""></RouterLink>
+      <RouterLink class="lg:hidden" to="/"><img src="../assets/Bembos_logo15.png" alt=""></RouterLink>
 
     </section>
     <section class="bg-yellow-300 flex w-28 sm:w-44 rounded-full px-0.5 sm:px-3 items-center lg:hidden">
@@ -139,6 +140,7 @@ const reloadPage = () =>{
     </section>
   </aside>
 <NavbarPhone id="modalPhone" class="opacity-0 h-56 w-full -translate-y-80 " :class="{'translate-y-0': phonemodal == true }, {'opacity-100': phonemodal == true}" />
+<carrito/>
 </template>
 
 <style scoped>
