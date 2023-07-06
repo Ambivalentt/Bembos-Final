@@ -69,9 +69,9 @@ const modules = [Navigation, Pagination, Scrollbar, Autoplay];
                         </main>
                     </header>
                     <footer class=" pt-2.5 sm:pt-5">
-                        <button class="px-3 py-1 sm:px-14 md:py-2 lg:text-xl text-white font-bold bg-blue-700 rounded-full ">Ver todos</button>
+                        <RouterLink to="/menu/combos"><button class="px-3 py-1 sm:px-14 md:py-2 lg:text-xl text-white font-bold bg-blue-700 rounded-full ">Ver todos</button></RouterLink>  
                     </footer>
-                </article >
+                </article>
                 <article class="flex flex-col items-center">
                     <header class="relative lg:w-full lg:h-full shadow-lg shadow-gray-400 rounded-xl">
                         <img class="w-full h-full object-contain rounded-xl" src="../assets/bg-article-2.webp" alt="">
@@ -91,7 +91,7 @@ const modules = [Navigation, Pagination, Scrollbar, Autoplay];
                         </main>
                     </header>
                     <footer class="pt-2.5 sm:pt-5">
-                        <button class="px-3 py-1 sm:px-14 md:py-2 lg:text-xl text-white font-bold bg-blue-700 rounded-full " >Ver todos</button>
+                        <RouterLink to="/menu/hamburguesasPollo"><button class="px-3 py-1 sm:px-14 md:py-2 lg:text-xl text-white font-bold bg-blue-700 rounded-full ">Ver todos</button></RouterLink>  
                     </footer>
                 </article>
                 <article class="flex flex-col items-center">

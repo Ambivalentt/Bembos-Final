@@ -50,7 +50,12 @@ const router = createRouter({
     },
     {
      path:'/menu/bebidas',
-     component:() => import ('../views/Bebidas.vue')
+     component:() => import ('../views/BebidasView.vue')
+    }
+    ,
+    {
+      path:'/menu/combos',
+      component:() => import ('../views/CombosView.vue')
     }
   ]
 })

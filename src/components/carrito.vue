@@ -1,18 +1,19 @@
 <script setup>
 import { inject, ref, watch } from 'vue';
+//Lamamos a la variable global
 const globalData = inject('globalData')
-
 const productosCompradosRef = ref(globalData.value.productosComprados)
-
+//separamos y eliminamos por indice
 const removeFromCard = (index) => {
     productosCompradosRef.value.splice(index, 1)
 }
-//carrito menu
+//carrito abrir y cerrar menu variable global 
 const carritoStatus = inject('carritoStatus');
 
 const closeCart = () => {
     carritoStatus.value = false
 }
+//precio total de todos los productos, recorremos con mapa y con el metodo reduce sumamos
 const totalPrice = ref(0);
 const calculateTotalPrice = () => {
     const prices = productosCompradosRef.value.map(product => parseFloat(product.price))
@@ -20,6 +21,7 @@ const calculateTotalPrice = () => {
     totalPrice.value = priceItems.value.toFixed(2)
 
 };
+//Reenderiza las funciones y variables
 watch(productosCompradosRef, calculateTotalPrice, { deep: true });
 </script>
   

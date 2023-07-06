@@ -85,9 +85,9 @@ window.addEventListener('resize', changeSlidesPerView);
                                     <p class="text-red-600 font-extrabold text-base sm:text-xl line-through"> S/.10.22</p>
                                 </main>
                                 <footer class="pt-2 flex w-full justify-center">
-                                    <button
-                                        class="bg-blue-800 text-white w-56 mx-3 h-10 sm:w-64 sm:h-10  rounded-full font-bold ">Ver
-                                        más</button>
+                                    <RouterLink to="/menu"
+                                        class="bg-blue-800 text-white mx-2.5 w-56 md:w-56 lg:w-60  text-center py-1.5 rounded-full font-bold custom-font text-xl">
+                                        <button class="w-full ">Ver mas</button></RouterLink>
                                 </footer>
                             </main>
                         </article>

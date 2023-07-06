@@ -54,7 +54,7 @@ const openCard = () =>{
                 class="text-red-600 font-bold">SIN
                 COLAS</span></p>
           </div>
-          <div class="bg-yellow-300 rounded-full px-4 relative" @click="openCard">
+          <div class="bg-yellow-300 rounded-full px-4 relative cursor-pointer" @click="openCard">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-12 h-12 bg-bembos">
               <path stroke-linecap="round" stroke-linejoin="round"

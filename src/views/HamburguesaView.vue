@@ -2,13 +2,16 @@
 import { RouterLink, RouterView } from 'vue-router'
 import axios from 'axios';
 import { ref, inject } from 'vue';
-
-//parametros de ruta
 import { useRoute } from 'vue-router';
+
+
+//tomamos valores de la ruta del id
 const route = useRoute();
 const products = ref([])
 const nameProduct = ref('')
 const imgProduct = ref('')
+
+//llamamos con el id al objeto que se indico VER MAS DETALLES
 const bembosJson = async () => {
     const response = await axios.get(`https://front-mrt-default-rtdb.firebaseio.com/productos/${route.params.id}.json`)
     products.value = response.data;
@@ -17,16 +20,20 @@ const bembosJson = async () => {
     imgProduct.value = response.data.img
 }
 bembosJson()
-//productos cantidad
-const priceProduct = ref()
-const currentProduct = ref(1)
-const productTotal = ref()
 
+
+const priceProduct = ref() //precio del producto inicial
+const currentProduct = ref(1) //cantidad inicial
+const productTotal = ref()  //precio de la cantidad total del producto
+
+//boton para incrementar la cantidad del producto y multiplicar por el precio
 const productIncrease = () => {
     currentProduct.value++
     productTotal.value = (currentProduct.value * priceProduct.value).toFixed(2)
 };
 productIncrease()
+
+//boton para para decrementar la cantidad y multiplicar con el precio 
 const productDecrease = () => {
     currentProduct.value--
     productTotal.value = (currentProduct.value * priceProduct.value).toFixed(2)
@@ -35,7 +42,10 @@ productDecrease()
 
 //Carrito
 
+//variables array de objetos global 
 const globalData = inject('globalData')
+
+//si la cantidad es 1 se enviara el precio original
 const addToCart = () => {
     if (currentProduct.value === 1) {
         const item = {
@@ -47,6 +57,7 @@ const addToCart = () => {
 
         globalData.value.productosComprados.push(item);
     }
+    //si la cantidad es mayor que 2 se enviara el precio total
     if (currentProduct.value >= 2) {
         const item = {
             name: nameProduct.value,
@@ -87,7 +98,7 @@ const addToCart = () => {
                 </svg>
             </li>
             <li class="underline">
-                <RouterLink to="/menu/hamburguesas">Hamburguesas</RouterLink>
+                <RouterLink to=".">{{products.product}}</RouterLink>
             </li>
             <li class="underline">
                 <svg xmlns="http://www.w3.org/2000/svg" height="0.9em"

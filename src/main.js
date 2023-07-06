@@ -4,11 +4,13 @@ import { createApp, provide, ref } from 'vue'
 import App from './App.vue'
 import router from './router'
 
+//variable para guardar objetos en el carrito
 const globalData = ref({
     productosComprados: []
 }
 )
 
+//toggle para el menu carrito
 const carritoStatus = ref(false)
 
 //fontAwesome
